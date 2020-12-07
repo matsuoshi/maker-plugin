@@ -15,9 +15,11 @@ namespace Plugin\Maker4\Tests\Web\Admin;
 
 use Eccube\Common\Constant;
 use Faker\Generator;
+use Plugin\Maker4\Entity\Maker;
 use Plugin\Maker4\Tests\Web\MakerWebCommon;
 use Symfony\Component\DomCrawler\Crawler;
 use Plugin\Maker4\Repository\MakerRepository;
+
 
 /**
  * Class MakerControllerTest.
@@ -37,7 +39,7 @@ class MakerControllerTest extends MakerWebCommon
         parent::setUp();
         $this->deleteAllRows(['plg_maker']);
 
-        $this->makerRepository = $this->container->get(MakerRepository::class);
+        $this->makerRepository = $this->entityManager->getRepository(Maker::class);
     }
 
     /**
