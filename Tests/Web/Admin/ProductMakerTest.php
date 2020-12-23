@@ -13,10 +13,12 @@
 
 namespace Plugin\Maker4\Tests\Web\Admin;
 
+use Eccube\Entity\Product;
 use Faker\Generator;
 use Plugin\Maker4\Tests\Web\MakerWebCommon;
 use Symfony\Component\HttpKernel\Client;
 use Eccube\Repository\ProductRepository;
+
 
 /**
  * Class ProductMakerTest.
@@ -44,7 +46,7 @@ class ProductMakerTest extends MakerWebCommon
         parent::setUp();
         $this->deleteAllRows(['plg_maker']);
 
-        $this->productRepository = $this->container->get(ProductRepository::class);
+        $this->productRepository = $this->entityManager->getRepository(Product::class);
     }
 
     /**
